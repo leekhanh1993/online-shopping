@@ -3,11 +3,13 @@ import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 import Products from '../Product/Products';
+import ControlView from '../ControlView/ControlView';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      gridView: true,
       products: [
         {
           name: 'Macbook Pro 2017',
@@ -49,16 +51,19 @@ export default class App extends React.Component {
     }
 
   }
+  showGridView(grid){
+    this.setState({gridView: grid})
+  }
 
   deleteProduct(id) {
-    var {products} = this.state;
+    var { products } = this.state;
     products.splice(id, 1)
-    this.setState({products})
+    this.setState({ products })
   }
   editNameProduct(id, name) {
-    var {products} = this.state;
+    var { products } = this.state;
     products[id].name = name;
-    this.setState({products})
+    this.setState({ products })
   }
 
   render() {
@@ -72,16 +77,18 @@ export default class App extends React.Component {
         info={product.info}
         edit={(id, name) => this.editNameProduct(id, name)}
         delete={(id) => this.deleteProduct(id)}
+        gridView={(this.state.gridView)}
       ></Products>
     })
     return (
       <div>
         <Header />
         <Navigation />
+        <ControlView
+        gridView={(grid) => this.showGridView(grid)}
+        />
         <div className="container-fluid">
           {listProducts}
-
-
         </div><br /><br />
         <Footer />
       </div>

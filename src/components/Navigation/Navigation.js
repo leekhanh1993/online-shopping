@@ -12,7 +12,7 @@ class Navigation extends Component {
                                 <span className="icon-bar" />
                                 <span className="icon-bar" />
                             </button>
-                            <a className="navbar-brand" href="#">Logo</a>
+                            <a className="navbar-brand" href="#">LK Store</a>
                         </div>
                         <div className="collapse navbar-collapse" id="myNavbar">
                             <ul className="nav navbar-nav">
