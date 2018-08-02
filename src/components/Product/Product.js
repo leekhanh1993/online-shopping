@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ControlView from '../ControlView/ControlView';
-import Items from './Items';
+import Item from './Item';
+import myData from './data.json'
 
 class Product extends Component {
     constructor(props) {
@@ -65,7 +66,7 @@ class Product extends Component {
     
       render() {
         var listProducts = this.state.products.map((product, index) => {
-          return <Items
+          return <Item
             index={index}
             key={index}
             name={product.name}
@@ -75,7 +76,7 @@ class Product extends Component {
             edit={(id, name) => this.editNameProduct(id, name)}
             delete={(id) => this.deleteProduct(id)}
             gridView={(this.state.gridView)}
-          ></Items>
+          ></Item>
         })
         return (
           <div>

@@ -4,18 +4,22 @@ import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 import Home from '../Home/Home';
 import Product from '../Product/Product';
+import RouterURL from '../RouterURL/RouterURL';
+import { BrowserRouter as Router } from "react-router-dom";
 
 export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <Header />
-        <Navigation />
-        <div className="container-fluid">
-         <Product/>
+      <Router>
+        <div>
+          <Header />
+          <Navigation />
+          <div className="container-fluid">
+            <RouterURL/>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </Router>
     )
   }
 }

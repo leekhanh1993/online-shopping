@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import Product from '../Product/Product';
+import Home from '../Home/Home';
+import Detail from '../Detail/Detail';
 
 class RouterURL extends Component {
     render() {
         return (
-            <Router>
-                <div>
+            <div>
+                <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/Products" component={} />
-                    <Route path="/topics" component={Topics} />
-                </div>
-            </Router>
+                    <Route path="/product" component={Product} />
+                    <Route path="/detail/:index/:slug.html" component={Detail} />
+                    <Route component={Home} />
+                </Switch>
+            </div>
         );
     }
 }
