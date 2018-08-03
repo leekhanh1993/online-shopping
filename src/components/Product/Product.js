@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ControlView from '../ControlView/ControlView';
 import Item from './Item';
-import myData from './data.json'
+import {connect} from 'react-redux'
 
 class Product extends Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class Product extends Component {
               price: '160000',
               image: 'https://cdn2.tgdd.vn/Products/Images/86/111402/chuot-khong-day-logitech-b175-1-300x300.jpg',
               info: 'made in VN'
-            },
+            }
           ]
         }
     
@@ -84,7 +84,7 @@ class Product extends Component {
             <ControlView
             gridView={(grid) => this.showGridView(grid)}
             />
-              {listProducts}}
+              {listProducts}
             </div><br /><br />
           </div>
         )
