@@ -1,2 +1,2 @@
 # online-shopping
-online-shopping with reactjs and redux
+online-shopping with reactjs and redux. Made by Lee Khanh
