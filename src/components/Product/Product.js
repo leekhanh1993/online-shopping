@@ -65,6 +65,7 @@ class Product extends Component {
       }
     
       render() {
+        console.log(this.props.allProduct);
         var listProducts = this.state.products.map((product, index) => {
           return <Item
             index={index}
@@ -91,4 +92,10 @@ class Product extends Component {
       }
 }
 
-export default Product;
+const mapStateToProps = (state) => {
+  return{
+    allProduct: state.allProduct
+  }
+}
+
+export default connect(mapStateToProps,null)(Product);
