@@ -14,25 +14,25 @@
     {
       "name": "Oppo Neo 9",
       "price": 10000000,
-      "image": "https: //cdn.tgdd.vn/Products/Images/42/76014/oppo-a37-hero-400x466-400x466copy-400x466.png",
+      "image": "https://cdn.tgdd.vn/Products/Images/42/76014/oppo-a37-hero-400x466-400x466copy-400x466.png",
       "info": "Storage 200gb"
     },
     {
       "name": "Macbook Air 2017",
       "price": 20000000,
-      "image": "https: //cdn.tgdd.vn/Products/Images/44/80468/apple-macbook-air-2015-mmgg2zp-a-i5-5250u-8gb-256g-bac-450x300-450x300.jpg",
+      "image": "https://cdn.tgdd.vn/Products/Images/44/80468/apple-macbook-air-2015-mmgg2zp-a-i5-5250u-8gb-256g-bac-450x300-450x300.jpg",
       "info": "Storage 128gb"
     },
     {
       "name": "Samsung Galaxy S8",
       "price": 30000000,
-      "image": "https: //cdn.tgdd.vn/Files/2017/03/23/964086/samsung-galaxy-s8-1_600x628.jpg",
+      "image": "https://cdn.tgdd.vn/Files/2017/03/23/964086/samsung-galaxy-s8-1_600x628.jpg",
       "info": "Storage 500gb"
     },
     {
       "name": "Mouse Logitech M75",
       "price": 160000,
-      "image": "https: //cdn2.tgdd.vn/Products/Images/86/111402/chuot-khong-day-logitech-b175-1-300x300.jpg",
+      "image": "https://cdn2.tgdd.vn/Products/Images/86/111402/chuot-khong-day-logitech-b175-1-300x300.jpg",
       "info": "made in VN"
     }
 ]

@@ -23,6 +23,9 @@ class Navigation extends Component {
                                 <li>
                                     <NavLink activeClassName="selected" to="/Product">Product</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink activeClassName="selected" to="/Contact">Contact</NavLink>
+                                </li>
                             </ul>
                         </div>
                     </div>

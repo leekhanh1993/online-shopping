@@ -21,14 +21,15 @@ class Detail extends Component {
                                     </div>
                                     <div className="panel-body">
                                         <div className="col-xs-4">
-                                            <img style={{ maxWidth: '100%' }} src={product.image} />
+                                        {console.log(product.image)}
+                                            <img style={{ maxWidth: '100%' }} src={product.image} alt=''/>
                                         </div>
                                         <div className="col-xs-8">
                                             <div className="panel-body">
                                             <h1>{product.name}</h1>
-                                            <h1>Price: {this.format_currency(product.price)} VND</h1>
-                                            <h1>Description:</h1>
-                                            <h4>{product.info}</h4>
+                                            <h3>Price: {this.format_currency(product.price)} VND</h3>
+                                            <h3>Description:</h3>
+                                            <p>{product.info}</p>
                                             </div>
                                         </div>
                                     </div>

@@ -96,21 +96,24 @@ class Item extends Component {
         className={this.props.gridView ? "col-sm-6 col-md-4" : ''}>
         <div className="thumbnail">
           <h4 className="text-center"><span className="label label-info">{this.props.name}</span></h4>
-          <img alt="image" src={this.props.image} className="img-responsive" style={{ width: 400, height: 400 }} />
+          <img alt="" src={this.props.image} className="img-responsive" style={{ width: 400, height: 400 }} />
           <div className="caption">
             <div className="row">
-              <div className="col-md-6 col-xs-6">
+              <div className="col-md-12 col-xs-12">
                 <h3>{this.props.name}</h3>
               </div>
-              <div className="col-md-6 col-xs-6 price">
+              <div className="col-md-12 col-xs-12">
                 <h3>
                   <label>Price: {this.format_currency(this.props.price)} VND</label></h3>
               </div>
+              <div className="col-md-12 col-xs-12">
+                <h4>Description:</h4>
+                <p>{this.props.info}</p>
+              </div>
             </div>
-            <p>{this.props.info}</p>
             <div className="row">
+            <hr/>
               <div className="col-md-6">
-     
               <Link
                   className="btn btn-primary btn-product"
                   to={"detail/" + (this.props.index + 1) + "/" + this.to_slug(this.props.name) + ".html"}
@@ -118,7 +121,7 @@ class Item extends Component {
                 
               </div>
               <div className="col-md-6">
-                <a href="#" className="btn btn-success btn-product"><span className="glyphicon glyphicon-shopping-cart" /> Buy</a></div>
+                <a className="btn btn-success btn-product"><span className="glyphicon glyphicon-shopping-cart" /> Buy</a></div>
             </div>
             {this.showButton()}
           </div>
