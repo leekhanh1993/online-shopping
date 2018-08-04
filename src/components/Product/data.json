@@ -1,38 +1,130 @@
 [
-    {
-      "name": "Macbook Pro 2017",
-      "price": 30000000,
-      "image": "https://cdn.tgdd.vn/Products/Images/44/111226/apple-macbook-pro-mpxr2sa-a-450x300-450x300-h2-450x300.jpg",
-      "info": "Storage 256gb"
-    },
-    {
-      "name": "Iphon X",
-      "price": 25000000,
-      "image": "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-1-400x460.png",
-      "info": "Storage 64gb"
-    },
-    {
-      "name": "Oppo Neo 9",
-      "price": 10000000,
-      "image": "https://cdn.tgdd.vn/Products/Images/42/76014/oppo-a37-hero-400x466-400x466copy-400x466.png",
-      "info": "Storage 200gb"
-    },
-    {
-      "name": "Macbook Air 2017",
-      "price": 20000000,
-      "image": "https://cdn.tgdd.vn/Products/Images/44/80468/apple-macbook-air-2015-mmgg2zp-a-i5-5250u-8gb-256g-bac-450x300-450x300.jpg",
-      "info": "Storage 128gb"
-    },
-    {
-      "name": "Samsung Galaxy S8",
-      "price": 30000000,
-      "image": "https://cdn.tgdd.vn/Files/2017/03/23/964086/samsung-galaxy-s8-1_600x628.jpg",
-      "info": "Storage 500gb"
-    },
-    {
-      "name": "Mouse Logitech M75",
-      "price": 160000,
-      "image": "https://cdn2.tgdd.vn/Products/Images/86/111402/chuot-khong-day-logitech-b175-1-300x300.jpg",
-      "info": "made in VN"
-    }
+  {
+    "_id": "5b61baf1c2cca5021a29a8f0",
+    "id": null,
+    "name": "Black Mamba Gaming Mouse",
+    "price": "5000000",
+    "description": "Best for gaming and working",
+    "brand": "Razer",
+    "producer": "Razer",
+    "imageUrl": "https://computerpad.ae/wp-content/uploads/2015/07/Untitled54.png",
+    "productType": "5b633173c2cca5021a29a8f9"
+  },
+  {
+    "_id": "5b62eb31c2cca5021a29a8f5",
+    "id": null,
+    "name": "Apple Iphone X 256GB",
+    "price": "34500000",
+    "description": "Latest Apple smartphone",
+    "brand": "Apple",
+    "producer": "Apple",
+    "imageUrl": "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-1-400x460.png",
+    "productType": "5b61abbcc2cca5021a29a8ea"
+  },
+  {
+    "_id": "5b61abe7c2cca5021a29a8eb",
+    "id": null,
+    "name": "Samsung Galaxy Note 8",
+    "price": "20000000",
+    "description": "Latest Samsung flagship smartphone",
+    "brand": "Samsung",
+    "producer": "Samsung",
+    "imageUrl": "https://s7d2.scene7.com/is/image/SamsungUS/Note8-Front-S-Pen-Orchidgray?$product-details-jpg$",
+    "productType": "5b61abbcc2cca5021a29a8ea"
+  },
+  {
+    "_id": "5b61b99bc2cca5021a29a8ef",
+    "id": null,
+    "name": "King Luxury Bed",
+    "price": "25000000",
+    "description": "Memory foam",
+    "brand": "Vạn Thành",
+    "producer": "Vạn Thành",
+    "imageUrl": "https://images.homedepot-static.com/productImages/042de85a-f4d3-432c-99c7-beefd330effb/svn/gray-luxeo-beds-headboards-lux-k6368-gry-64_1000.jpg",
+    "productType": "5b61b953c2cca5021a29a8ee"
+  },
+  {
+    "_id": "5b632eb6c2cca5021a29a8f6",
+    "id": null,
+    "name": "The Devotion of Suspect X",
+    "price": "100000",
+    "description": "Japanese famous thriller novel",
+    "brand": "Nhã Nam Publishing",
+    "producer": "Higashino Keigo",
+    "imageUrl": "https://i.pinimg.com/originals/75/0d/67/750d67cd6afd6193e568731fb629318e.jpg",
+    "productType": "5b61b648c2cca5021a29a8ed"
+  },
+  {
+    "_id": "5b632fbdc2cca5021a29a8f7",
+    "id": null,
+    "name": "Cho Tôi Một Vé Đi Tuổi Thơ",
+    "price": "55000",
+    "description": "Vietnamese famous children book",
+    "brand": "Trẻ Publishing",
+    "producer": "Nguyễn Nhật Ánh",
+    "imageUrl": "https://isach.info/images/story/cover/cho_toi_xin_mot_ve_di_tuoi_tho__nguyen_nhat_anh.jpg",
+    "productType": "5b61b648c2cca5021a29a8ed"
+  },
+  {
+    "_id": "5b63315ac2cca5021a29a8f8",
+    "id": null,
+    "name": "Leopold FC750R Mechanical Keyboard",
+    "price": "4500000",
+    "description": "Made in Korea",
+    "brand": "Leopold",
+    "producer": "Leopold",
+    "imageUrl": "https://mechanicalkeyboards.com/shop/images/products/large_2900_DSC_0158.jpg",
+    "productType": "5b633173c2cca5021a29a8f9"
+  },
+  {
+    "_id": "5b6333efc2cca5021a29a8fa",
+    "name": "Tôi Ngồi Đây Chờ Cơn Bão Tới",
+    "price": "80000",
+    "description": "Second book from young Vietnamese author",
+    "brand": "Nhã Nam Publishing",
+    "producer": "Nguyễn Hải Nhật Huy",
+    "imageUrl": "http://static.nhasachphuongnam.com/images/thumbnails/201801_thumb/toi-ngoi-day-cho-con-bao-toi.450x652.w.b.jpg",
+    "productType": "5b61b648c2cca5021a29a8ed"
+  },
+  {
+    "_id": "5b633508c2cca5021a29a8fb",
+    "name": "Don't Make Me Think",
+    "price": "150000",
+    "description": "Best book for UX/UI design",
+    "brand": "Steve Krug",
+    "producer": "Steve Krug",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81OIBnrGKHL.jpg",
+    "productType": "5b61b648c2cca5021a29a8ed"
+  },
+  {
+    "_id": "5b61b63fc2cca5021a29a8ec",
+    "id": null,
+    "name": "Office Chair ",
+    "price": "500000",
+    "description": "Best for your back",
+    "brand": "Hoa Phat Furniture",
+    "producer": "Hoa Phat Furniture",
+    "imageUrl": "https://noithathoaphat.pro/img/uploads/ghe-lanh-dao-lung-cao-sg602.jpg",
+    "productType": "5b61b953c2cca5021a29a8ee"
+  },
+  {
+    "_id": "5b63c0d4c2cca5021a29a8fc",
+    "name": "Dế Mèn Phiêu Lưu Ký",
+    "price": "25000",
+    "description": "Vietnamese classic children book",
+    "brand": "Trẻ Publishing",
+    "producer": "Tô Hoài",
+    "imageUrl": "",
+    "productType": "5b61b648c2cca5021a29a8ed"
+  },
+  {
+    "_id": "5b63c222c2cca5021a29a8fd",
+    "name": "Panasonic Stereo ",
+    "price": "1500000",
+    "description": "Made in Japan",
+    "brand": "Panasonic",
+    "producer": "Panasonic",
+    "imageUrl": "",
+    "productType": ""
+  }
 ]

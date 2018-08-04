@@ -1,9 +1,10 @@
 import * as types from './../actions/actionTypes'
-var initialState = [
-    {
-        test: 'abc'
-    }
-];
+import myData from './../components/Product/data.json'
+
+// fetch('./../Product/data.json')
+// .then(res => res.json())
+// .then((products) => products ? initialState = products : initialState = [])
+var initialState = myData;
 
 var myReducer = (state = initialState, action) => {
     switch (action.type) {

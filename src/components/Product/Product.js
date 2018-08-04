@@ -65,15 +65,20 @@ class Product extends Component {
       }
     
       render() {
-        console.log(this.props.allProduct);
-        var listProducts = this.state.products.map((product, index) => {
+        var {allProduct, keyword} = this.props;
+        //search
+        allProduct = allProduct.filter((product) =>{
+          return product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
+        })
+        var listProducts = allProduct.map((product, index) => {
           return <Item
             index={index}
+            pid={product._id}
             key={index}
             name={product.name}
             price={product.price}
-            image={product.image}
-            info={product.info}
+            imageUrl={product.imageUrl}
+            description={product.description}
             edit={(id, name) => this.editNameProduct(id, name)}
             delete={(id) => this.deleteProduct(id)}
             gridView={(this.state.gridView)}
@@ -94,7 +99,8 @@ class Product extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    allProduct: state.allProduct
+    allProduct: state.allProduct,
+    keyword: state.searchProduct
   }
 }
 

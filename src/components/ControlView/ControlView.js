@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import * as actions from './../../actions/index'
 
 class ControlView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       gridView: true,
-      listView: false
+      listView: false,
+      keyword: ''
     }
   }
 
@@ -23,12 +26,46 @@ class ControlView extends Component {
       listView: true
     })
   }
+  onSearch(){
+    this.props.onSearch(this.state.keyword)
+  }
+  onChange(event){
+    var target = event.target;
+    var name = target.name;
+    var value = target.value
+    this.setState({
+      [name]: value
+    })
+  }
 
   render() {
     return ( 
-      <div className="container-fluid text-right">
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style={{ paddingTop: 10, paddingBottom: 10 }}>
-          <button 
+      <div className="container-fluid">
+      
+      <div className="row" style={{ paddingTop: 10, paddingBottom: 10 }}>
+        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        
+        <div className="input-group">
+          <input 
+          type="text" 
+          value={this.state.keyword}
+          name="keyword"
+          className="form-control" 
+          placeholder="Search"
+          onChange={this.onChange.bind(this)}
+          />
+          <span className="input-group-btn">
+            <button 
+            type="button" 
+            className="btn btn-default"
+            onClick={()=> this.onSearch()}
+            >Search</button>
+          </span>
+        </div>
+        
+        </div>
+        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <button 
           type="button" 
           className={this.state.gridView ? 'btn btn-success' : 'btn btn-default'} 
           style={{marginLeft: 10}}
@@ -41,9 +78,23 @@ class ControlView extends Component {
           onClick={() => this.showList()}
           >List View</button>
         </div>
+
+      </div>
       </div>
     );
   }
 }
 
-export default ControlView;
+const mapStateToProps = state =>{
+  return {};
+}
+
+const mapDispatchToProps = (dispatch, props) =>{
+  return {
+    onSearch: (keyword) =>{(
+      dispatch(actions.searchProduct(keyword))
+    )}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ControlView);

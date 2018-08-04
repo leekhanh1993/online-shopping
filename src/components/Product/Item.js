@@ -96,7 +96,7 @@ class Item extends Component {
         className={this.props.gridView ? "col-sm-6 col-md-4" : ''}>
         <div className="thumbnail">
           <h4 className="text-center"><span className="label label-info">{this.props.name}</span></h4>
-          <img alt="" src={this.props.image} className="img-responsive" style={{ width: 300, height: 300 }} />
+          <img alt="" src={this.props.imageUrl} className="img-responsive" style={{ width: 300, height: 300 }} />
           <div className="caption">
             <div className="row">
               <div className="col-md-12 col-xs-12">
@@ -108,7 +108,7 @@ class Item extends Component {
               </div>
               <div className="col-md-12 col-xs-12">
                 <h4>Description:</h4>
-                <p>{this.props.info}</p>
+                <p>{this.props.description}</p>
               </div>
             </div>
             <div className="row">
@@ -116,7 +116,7 @@ class Item extends Component {
               <div className="col-md-6">
               <Link
                   className="btn btn-primary btn-product"
-                  to={"detail/" + (this.props.index + 1) + "/" + this.to_slug(this.props.name) + ".html"}
+                  to={"detail/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
                 ><span className="glyphicon glyphicon-th-list"/> More details</Link>
                 
               </div>

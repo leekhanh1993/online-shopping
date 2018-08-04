@@ -13,7 +13,7 @@ class RouterURL extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/product" component={Product} />
                     <Route path="/contact" component={Contact} />
-                    <Route path="/detail/:index/:slug.html" component={Detail} />
+                    <Route path="/detail/:pid/:slug.html" component={Detail} />
                     <Route component={Home} />
                 </Switch>
             </div>

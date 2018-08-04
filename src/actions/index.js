@@ -6,3 +6,10 @@ export const showAllProduct = () => {
         type: types.ALL_PRODUCT
     }
 }
+
+export const searchProduct = (keyword) => {
+    return{
+        type: types.SEARCH_PRODUCT,
+        keyword
+    }
+}

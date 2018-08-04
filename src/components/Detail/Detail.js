@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import myData from './../Product/data.json'
 import Product from '../Product/Product';
+import {connect} from 'react-redux'
 
 class Detail extends Component {
     format_currency = (price) => {
@@ -8,11 +9,11 @@ class Detail extends Component {
         return value.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
     }
     render() {
-        var id = this.props.match.params.index - 1
+        var id = this.props.match.params.pid
         return (
             <div>
-                {myData.map((product, index) => {
-                    if (index === id) {
+                {this.props.allProduct.map((product, index) => {
+                    if (product._id === id) {
                         return <div key={index} className="container">
                             <div className="row">
                                 <div className="panel panel-default">
@@ -21,15 +22,14 @@ class Detail extends Component {
                                     </div>
                                     <div className="panel-body">
                                         <div className="col-xs-4">
-                                        {console.log(product.image)}
-                                            <img style={{ maxWidth: '100%' }} src={product.image} alt=''/>
+                                            <img style={{ maxWidth: '100%' }} src={product.imageUrl} alt=''/>
                                         </div>
                                         <div className="col-xs-8">
                                             <div className="panel-body">
                                             <h1>{product.name}</h1>
                                             <h3>Price: {this.format_currency(product.price)} VND</h3>
                                             <h3>Description:</h3>
-                                            <p>{product.info}</p>
+                                            <p>{product.description}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -43,4 +43,10 @@ class Detail extends Component {
     }
 }
 
-export default Detail;
+const mapStateToProps = (state) => {
+    return{
+      allProduct: state.allProduct,
+    }
+  }
+
+export default connect(mapStateToProps,null)(Detail);
