@@ -13,3 +13,16 @@ export const searchProduct = (keyword) => {
         keyword
     }
 }
+
+export const fetchProduct = (products) => {
+    return{
+        type: types.FETCH_PRODUCT,
+        payload: products
+    }
+}
+export const editProduct = (product) => {
+    return{
+        type: types.FETCH_PRODUCT,
+        payload: product
+    }
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { deleteProduct } from '../../reducers/manageFetchData'
+import {connect} from 'react-redux'
 
 class Item extends Component {
   constructor(props) {
@@ -16,7 +18,10 @@ class Item extends Component {
     this.props.edit(this.props.index, this.txtName.value);
   }
   buttonDelete() {
-    this.props.delete(this.props.index)
+    if(window.confirm('Do you want to delete?') === true){
+      this.props.dispatch(deleteProduct(this.props.pid))
+      this.props.loadpage()  
+    }
   }
 
   renderNormal() {
@@ -93,18 +98,17 @@ class Item extends Component {
   render() {
     return (
       <div
-        className={this.props.gridView ? "col-sm-6 col-md-4" : ''}>
+        className={this.props.gridView ? "col-sm-4" : ''}>
         <div className="thumbnail">
           <h4 className="text-center"><span className="label label-info">{this.props.name}</span></h4>
-          <img alt="" src={this.props.imageUrl} className="img-responsive" style={{ width: 300, height: 300 }} />
+          <img alt="" src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl} className="img-responsive" style={{ width: 400, height: 400 }} />
           <div className="caption">
             <div className="row">
               <div className="col-md-12 col-xs-12">
-                <h3>{this.props.name}</h3>
-              </div>
-              <div className="col-md-12 col-xs-12">
-                <h3>
-                  <label>Price: {this.format_currency(this.props.price)} VND</label></h3>
+              <h4>
+              <span className="label label-success">Price: {this.format_currency(this.props.price)} VND</span></h4>
+                {/* <h3>
+                  <label>Price: {this.format_currency(this.props.price)} VND</label></h3> */}
               </div>
               <div className="col-md-12 col-xs-12">
                 <h4>Description:</h4>
@@ -131,4 +135,4 @@ class Item extends Component {
   }
 }
 
-export default Item;
+export default connect()(Item);

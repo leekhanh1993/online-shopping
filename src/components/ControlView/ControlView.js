@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import * as actions from './../../actions/index'
+import { Link } from "react-router-dom";
 
 class ControlView extends Component {
   constructor(props) {
@@ -12,24 +13,24 @@ class ControlView extends Component {
     }
   }
 
-  showGrid(){
+  showGrid() {
     this.props.gridView(true)
     this.setState({
       gridView: true,
       listView: false
     })
   }
-  showList(){
+  showList() {
     this.props.gridView(false)
     this.setState({
       gridView: false,
       listView: true
     })
   }
-  onSearch(){
+  onSearch() {
     this.props.onSearch(this.state.keyword)
   }
-  onChange(event){
+  onChange(event) {
     var target = event.target;
     var name = target.name;
     var value = target.value
@@ -39,61 +40,69 @@ class ControlView extends Component {
   }
 
   render() {
-    return ( 
+    return (
       <div className="container-fluid">
-      
-      <div className="row" style={{ paddingTop: 10, paddingBottom: 10 }}>
-        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        
-        <div className="input-group">
-          <input 
-          type="text" 
-          value={this.state.keyword}
-          name="keyword"
-          className="form-control" 
-          placeholder="Search"
-          onChange={this.onChange.bind(this)}
-          />
-          <span className="input-group-btn">
-            <button 
-            type="button" 
-            className="btn btn-default"
-            onClick={()=> this.onSearch()}
-            >Search</button>
-          </span>
+        <div className="row" style={{ paddingTop: 10, paddingBottom: 10 }}>
+          <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <Link
+              className="btn btn-primary"
+              to="/add-product"
+            ><span className="glyphicon glyphicon-plus" /> New Product</Link>
+          </div>
         </div>
-        
-        </div>
-        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <button 
-          type="button" 
-          className={this.state.gridView ? 'btn btn-success' : 'btn btn-default'} 
-          style={{marginLeft: 10}}
-          onClick={()=> this.showGrid()}
-          >Grid View</button>
-          <button 
-          type="button" 
-          className={this.state.listView ? 'btn btn-success' : 'btn btn-default'} 
-          style={{ marginLeft: 10}}
-          onClick={() => this.showList()}
-          >List View</button>
-        </div>
+        <div className="row" style={{ paddingTop: 10, paddingBottom: 10 }}>
+          <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div className="input-group">
+              <input
+                type="text"
+                value={this.state.keyword}
+                name="keyword"
+                className="form-control"
+                placeholder="Search"
+                onChange={this.onChange.bind(this)}
+              />
+              <span className="input-group-btn">
+                <button
+                  type="button"
+                  className="btn btn-default"
+                  onClick={() => this.onSearch()}
+                >Search</button>
+              </span>
+            </div>
 
-      </div>
+          </div>
+          <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+            <button
+              type="button"
+              className={this.state.gridView ? 'btn btn-success' : 'btn btn-default'}
+              style={{ marginLeft: 10 }}
+              onClick={() => this.showGrid()}
+            >Grid View</button>
+            <button
+              type="button"
+              className={this.state.listView ? 'btn btn-success' : 'btn btn-default'}
+              style={{ marginLeft: 10 }}
+              onClick={() => this.showList()}
+            >List View</button>
+          </div>
+
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
   return {};
 }
 
-const mapDispatchToProps = (dispatch, props) =>{
+const mapDispatchToProps = (dispatch, props) => {
   return {
-    onSearch: (keyword) =>{(
-      dispatch(actions.searchProduct(keyword))
-    )}
+    onSearch: (keyword) => {
+      (
+        dispatch(actions.searchProduct(keyword))
+      )
+    }
   }
 }
 

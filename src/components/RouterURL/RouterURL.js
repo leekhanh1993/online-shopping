@@ -4,6 +4,7 @@ import Product from '../Product/Product';
 import Home from '../Home/Home';
 import Detail from '../Detail/Detail';
 import Contact from '../Contact/Contact';
+import AddProduct from '../AddProduct/AddProduct';
 
 class RouterURL extends Component {
     render() {
@@ -13,6 +14,7 @@ class RouterURL extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/product" component={Product} />
                     <Route path="/contact" component={Contact} />
+                    <Route path="/add-product" component={AddProduct} />
                     <Route path="/detail/:pid/:slug.html" component={Detail} />
                     <Route component={Home} />
                 </Switch>

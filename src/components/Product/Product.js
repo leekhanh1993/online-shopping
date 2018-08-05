@@ -2,50 +2,13 @@ import React, { Component } from 'react';
 import ControlView from '../ControlView/ControlView';
 import Item from './Item';
 import {connect} from 'react-redux'
+import { fetchProduct } from '../../reducers/manageFetchData'
 
 class Product extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          gridView: true,
-          products: [
-            {
-              name: 'Macbook Pro 2017',
-              price: '30000000',
-              image: 'https://cdn.tgdd.vn/Products/Images/44/111226/apple-macbook-pro-mpxr2sa-a-450x300-450x300-h2-450x300.jpg',
-              info: 'Storage 256gb'
-            },
-            {
-              name: 'Iphon X',
-              price: '25000000',
-              image: 'https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-1-400x460.png',
-              info: 'Storage 64gb'
-            },
-            {
-              name: 'Oppo Neo 9',
-              price: '10000000',
-              image: 'https://cdn.tgdd.vn/Products/Images/42/76014/oppo-a37-hero-400x466-400x466copy-400x466.png',
-              info: 'Storage 200gb'
-            },
-            {
-              name: 'Macbook Air 2017',
-              price: '20000000',
-              image: 'https://cdn.tgdd.vn/Products/Images/44/80468/apple-macbook-air-2015-mmgg2zp-a-i5-5250u-8gb-256g-bac-450x300-450x300.jpg',
-              info: 'Storage 128gb'
-            },
-            {
-              name: 'Samsung Galaxy S8',
-              price: '30000000',
-              image: 'https://cdn.tgdd.vn/Files/2017/03/23/964086/samsung-galaxy-s8-1_600x628.jpg',
-              info: 'Storage 500gb'
-            },
-            {
-              name: 'Mouse Logitech M75',
-              price: '160000',
-              image: 'https://cdn2.tgdd.vn/Products/Images/86/111402/chuot-khong-day-logitech-b175-1-300x300.jpg',
-              info: 'made in VN'
-            }
-          ]
+          gridView: true
         }
     
       }
@@ -53,24 +16,30 @@ class Product extends Component {
         this.setState({gridView: grid})
       }
     
-      deleteProduct(id) {
-        var { products } = this.state;
-        products.splice(id, 1)
-        this.setState({ products })
-      }
+      // loadProductAgain() {
+      //   console.log('Load Page')
+      // }
       editNameProduct(id, name) {
         var { products } = this.state;
         products[id].name = name;
         this.setState({ products })
       }
+      componentDidMount(){
+        this.load()
+      }
+      load(){
+        console.log('load')
+        this.props.dispatch(fetchProduct())
+      }
     
       render() {
-        var {allProduct, keyword} = this.props;
-        //search
-        allProduct = allProduct.filter((product) =>{
+        var {keyword, allproduct} = this.props;
+        console.log(allproduct)
+        // search
+        allproduct = allproduct.filter((product) =>{
           return product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
         })
-        var listProducts = allProduct.map((product, index) => {
+        var listProducts = allproduct.map((product, index) => {
           return <Item
             index={index}
             pid={product._id}
@@ -80,7 +49,7 @@ class Product extends Component {
             imageUrl={product.imageUrl}
             description={product.description}
             edit={(id, name) => this.editNameProduct(id, name)}
-            delete={(id) => this.deleteProduct(id)}
+            loadpage={() => this.load()}
             gridView={(this.state.gridView)}
           ></Item>
         })
@@ -99,8 +68,8 @@ class Product extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    allProduct: state.allProduct,
-    keyword: state.searchProduct
+    keyword: state.searchProduct,
+    allproduct: state.manageProduct
   }
 }
 
