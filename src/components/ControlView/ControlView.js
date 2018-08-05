@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actions from './../../actions/index'
 import { Link } from "react-router-dom";
+import AddProduct from '../AddProduct/AddProduct';
 
 class ControlView extends Component {
   constructor(props) {
@@ -42,12 +43,37 @@ class ControlView extends Component {
   render() {
     return (
       <div className="container-fluid">
+      <div>
+        {/* Modal */}
+        <div className="modal fade" id="myModal" role="dialog">
+          <div className="modal-dialog">
+            {/* Modal content*/}
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal">×</button>
+                <h4 className="modal-title">New Product</h4>
+              </div>
+              <div className="modal-body">
+                <AddProduct/>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
         <div className="row" style={{ paddingTop: 10, paddingBottom: 10 }}>
           <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <Link
+          <a
+              className="btn btn-primary"
+              data-toggle="modal" 
+              data-target="#myModal"
+            ><span className="glyphicon glyphicon-plus" /> New Product</a>
+            {/* <Link
               className="btn btn-primary"
               to="/add-product"
-            ><span className="glyphicon glyphicon-plus" /> New Product</Link>
+            ><span className="glyphicon glyphicon-plus" /> New Product</Link> */}
           </div>
         </div>
         <div className="row" style={{ paddingTop: 10, paddingBottom: 10 }}>
