@@ -8,7 +8,6 @@ var myReducer = (state = initialState, action) => {
         case types.FETCH_PRODUCT:
             return action.payload;
         case types.ADD_PRODUCT:
-            console.log(action.payload)
             return [...state, action.payload];
         case types.DELETE_PRODUCT:
             return state.filter((product)=>product._id!==action.payload);

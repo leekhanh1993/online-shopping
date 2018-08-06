@@ -16,9 +16,7 @@ class Product extends Component {
         this.setState({gridView: grid})
       }
     
-      // loadProductAgain() {
-      //   console.log('Load Page')
-      // }
+
       editNameProduct(id, name) {
         var { products } = this.state;
         products[id].name = name;
@@ -28,13 +26,11 @@ class Product extends Component {
         this.load()
       }
       load(){
-        console.log('load')
         this.props.dispatch(fetchProduct())
       }
     
       render() {
         var {keyword, allproduct} = this.props;
-        console.log(allproduct)
         // search
         allproduct = allproduct.filter((product) =>{
           return product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
