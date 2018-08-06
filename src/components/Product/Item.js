@@ -1,66 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { deleteProduct } from '../../reducers/manageFetchData'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { getProduct } from './../../reducers/manageFetchData'
 
 class Item extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editting: false,
-    }
-  }
-  buttonEdit() {
-    this.setState({ editting: true })
-  }
-  buttonSave() {
-    this.setState({ editting: false })
-    this.props.edit(this.props.index, this.txtName.value);
-  }
-  buttonDelete() {
-    if(window.confirm('Do you want to delete?') === true){
-      this.props.dispatch(deleteProduct(this.props.pid))
-      this.props.loadpage()  
-    }
-  }
 
-  renderNormal() {
-    return <div className="row">
-      <hr />
-      <div className="col-md-6">
-        <a
-          className="btn btn-primary"
-          onClick={() => this.buttonEdit()}
-        ><span className="glyphicon glyphicon-edit" /> Edit</a>
-      </div>
-      <div className="col-md-6">
-        <a
-          className="btn btn-danger"
-          onClick={() => this.buttonDelete()}
-        ><span className="glyphicon glyphicon-floppy-remove" /> Remove</a></div>
-    </div>
-  }
-  renderForm() {
-    return <div className="row text-center">
-      <hr />
-      <div className="form-group">
-        <input
-          ref={(input) => { this.txtName = input }}
-          type="text"
-          className="form-control"
-          defaultValue={this.props.name}
-        />
-      </div>
-      <a
-        className="btn btn-success"
-        onClick={() => this.buttonSave()}
-      ><span className="glyphicon glyphicon-floppy-saved" /> Save</a></div>
-  }
-  showButton() {
-    if (this.state.editting === false) {
-      return this.renderNormal();
-    } else {
-      return this.renderForm();
+  // getAProduct(){
+  //   this.props.dispatch(getProduct(this.props.pid))
+  // }
+  buttonDelete() {
+    if (window.confirm('Do you want to delete?') === true) {
+      this.props.dispatch(deleteProduct(this.props.pid))
+      this.props.loadpage()
     }
   }
   format_currency = (price) => {
@@ -105,8 +57,8 @@ class Item extends Component {
           <div className="caption">
             <div className="row">
               <div className="col-md-12 col-xs-12">
-              <h4>
-              <span className="label label-success">Price: {this.format_currency(this.props.price)} VND</span></h4>
+                <h4>
+                  <span className="label label-success">Price: {this.format_currency(this.props.price)} VND</span></h4>
                 {/* <h3>
                   <label>Price: {this.format_currency(this.props.price)} VND</label></h3> */}
               </div>
@@ -116,18 +68,32 @@ class Item extends Component {
               </div>
             </div>
             <div className="row">
-            <hr/>
+              <hr />
               <div className="col-md-6">
-              <Link
+                <Link
                   className="btn btn-primary btn-product"
                   to={"detail/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
-                ><span className="glyphicon glyphicon-th-list"/> More details</Link>
-                
+                ><span className="glyphicon glyphicon-th-list" /> More details</Link>
+
               </div>
               <div className="col-md-6">
                 <a className="btn btn-success btn-product"><span className="glyphicon glyphicon-shopping-cart" /> Buy</a></div>
             </div>
-            {this.showButton()}
+            <div className="row">
+              <hr />
+              <div className="col-md-6">
+                <Link
+                  className="btn btn-primary btn-product"
+                  // onClick={this.getAProduct.bind(this)}
+                  to={"edit/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
+                ><span className="glyphicon glyphicon-edit" /> Edit</Link>
+              </div>
+              <div className="col-md-6">
+                <a
+                  className="btn btn-danger"
+                  onClick={() => this.buttonDelete()}
+                ><span className="glyphicon glyphicon-floppy-remove" /> Remove</a></div>
+            </div>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ class Detail extends Component {
                                     </div>
                                     <div className="panel-body">
                                         <div className="col-xs-4">
-                                            <img style={{ maxWidth: '100%' }} src={product.imageUrl} alt=''/>
+                                            <img style={{ maxWidth: '100%' }} src={product.imageUrl === "" ? 'http://via.placeholder.com/350x350' : product.imageUrl} alt=''/>
                                         </div>
                                         <div className="col-xs-8">
                                             <div className="panel-body">
@@ -43,7 +43,7 @@ class Detail extends Component {
 
 const mapStateToProps = (state) => {
     return{
-      allProduct: state.allProduct,
+      allProduct: state.manageProduct,
     }
   }
 

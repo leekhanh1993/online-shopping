@@ -174,7 +174,7 @@ class AddProduct extends Component {
                                         ><span className="glyphicon glyphicon-plus" /> Add</button>
                                         <button
                                             type="button"
-                                            className="btn btn-primary"
+                                            className="btn btn-danger"
                                             style={{ marginLeft: 10 }}
                                             data-dismiss="modal"
                                         ><span className="glyphicon glyphicon-log-out" /> Cancel</button>
