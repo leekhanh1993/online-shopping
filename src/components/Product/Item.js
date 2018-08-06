@@ -49,46 +49,92 @@ class Item extends Component {
   }
   render() {
     return (
+      // <div
+      //   className={this.props.gridView ? "col-xs-4 col-sm-4 col-md-4 col-lg-4" : ''}
+      // >
+      //   <div className="thumbnail">
+
+
+      //     <h3 className="text-center">
+      //       <span className="label label-info">{this.props.name}</span>
+      //     </h3>
+      //     <div className="text-center">
+      //       <img
+      //         alt=''
+      //         src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
+      //         style={{ width: 300, height: 300 }}
+      //       />
+      //     </div>
+      //     <div className="caption">
+      //       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style={{ marginBottom: 20 }}>
+      //         <h3 className="text-center">{this.format_currency(this.props.price)} VND</h3>
+      //       </div>
+      //       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style={{ marginBottom: 20 }}>
+      //         <Link
+      //           className="btn btn-primary btn-product"
+      //           to={"detail/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
+      //         ><span className="glyphicon glyphicon-th-list" /> More details</Link>
+      //         <a className="btn btn-success btn-product pull-right"><span className="glyphicon glyphicon-shopping-cart" /> Buy</a>
+      //       </div>
+      //       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style={{ marginBottom: 20 }}>
+      //         <Link
+      //           className="btn btn-primary btn-product"
+      //           // onClick={this.getAProduct.bind(this)}
+      //           to={"edit/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
+      //         ><span className="glyphicon glyphicon-edit" /> Edit</Link>
+      //         <a
+      //           className="btn btn-danger pull-right"
+      //           onClick={() => this.buttonDelete()}
+      //         ><span className="glyphicon glyphicon-floppy-remove" /> Remove</a>
+      //       </div>
+      //     </div>
+
+      //   </div>
+      // </div>
+
       <div
-        className={this.props.gridView ? "col-sm-4" : ''}>
+        className={this.props.gridView ? "col-xs-4 col-sm-4 col-md-4 col-lg-4" : ''}>
         <div className="thumbnail">
           <h4 className="text-center"><span className="label label-info">{this.props.name}</span></h4>
-          <img alt="" src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl} className="img-responsive" style={{ width: 400, height: 400 }} />
+            <img alt="" 
+            src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl} 
+            className="img-responsive" 
+            style={{ width: 300, height: 300 }} />
           <div className="caption">
             <div className="row">
-              <div className="col-md-12 col-xs-12">
-                <h4>
-                  <span className="label label-success">Price: {this.format_currency(this.props.price)} VND</span></h4>
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 className="text-center">
+                  <span className="label label-success">{this.format_currency(this.props.price)} đ</span></h3>
                 {/* <h3>
                   <label>Price: {this.format_currency(this.props.price)} VND</label></h3> */}
               </div>
-              <div className="col-md-12 col-xs-12">
+              {/* <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h4>Description:</h4>
                 <p>{this.props.description}</p>
-              </div>
+              </div> */}
             </div>
             <div className="row">
               <hr />
-              <div className="col-md-6">
+              <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <Link
                   className="btn btn-primary btn-product"
                   to={"detail/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
                 ><span className="glyphicon glyphicon-th-list" /> More details</Link>
 
               </div>
-              <div className="col-md-6">
+              <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <a className="btn btn-success btn-product"><span className="glyphicon glyphicon-shopping-cart" /> Buy</a></div>
             </div>
             <div className="row">
               <hr />
-              <div className="col-md-6">
+              <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <Link
                   className="btn btn-primary btn-product"
                   // onClick={this.getAProduct.bind(this)}
                   to={"edit/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
                 ><span className="glyphicon glyphicon-edit" /> Edit</Link>
               </div>
-              <div className="col-md-6">
+              <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <a
                   className="btn btn-danger"
                   onClick={() => this.buttonDelete()}

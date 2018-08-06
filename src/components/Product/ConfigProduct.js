@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { updateProduct,getProduct} from './../../reducers/manageFetchData'
+import { updateProduct} from './../../reducers/manageFetchData'
 import { Redirect } from "react-router-dom";
 
 class ConfigProduct extends Component {
@@ -76,6 +76,7 @@ class ConfigProduct extends Component {
 
     }
     render() {
+        
         if(this.state.isRedirect){
             return(
                 <Redirect to="/product"/>
@@ -214,4 +215,4 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps,null)(ConfigProduct);
+export default connect(mapStateToProps)(ConfigProduct);

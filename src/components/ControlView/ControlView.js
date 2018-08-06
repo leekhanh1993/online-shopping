@@ -43,7 +43,6 @@ class ControlView extends Component {
     return (
       <div className="container-fluid">
       <AddProduct/>
-        
         <div className="row" style={{ paddingTop: 10, paddingBottom: 10 }}>
           <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <div className="input-group">
