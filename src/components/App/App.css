@@ -26,4 +26,10 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.btn-product{
+	width: 100%;
+}
+.mt-10{
+  padding-top: 10px;
+}
 

@@ -92,57 +92,115 @@ class Item extends Component {
       //   </div>
       // </div>
 
-      <div
-        className={this.props.gridView ? "col-xs-4 col-sm-4 col-md-4 col-lg-4" : ''}>
+      <div className={this.props.gridView ? "col-sm-6 col-md-4" : 'col-sm-6 col-md-12'}>
         <div className="thumbnail">
-          <h4 className="text-center"><span className="label label-info">{this.props.name}</span></h4>
-            <img alt="" 
-            src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl} 
-            className="img-responsive" 
-            style={{ width: 300, height: 300 }} />
+          <h4 className="text-center">
+            <span className="label label-info">{this.props.name === null ? 'N/A' : this.props.name}</span>
+          </h4>
+          <img
+            src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
+            className="img-responsive"
+            style={{ width: 300, height: 300 }} 
+             />
           <div className="caption">
             <div className="row">
-              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3 className="text-center">
-                  <span className="label label-success">{this.format_currency(this.props.price)} đ</span></h3>
-                {/* <h3>
-                  <label>Price: {this.format_currency(this.props.price)} VND</label></h3> */}
+              <div className="col-md-12 col-xs-6 price">
+                <h3>
+                  <label>{this.format_currency(this.props.price)} đ</label>
+                </h3>
               </div>
-              {/* <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h4>Description:</h4>
-                <p>{this.props.description}</p>
-              </div> */}
             </div>
+            <p>{this.props.description === null ? 'N/A' : this.props.description}</p>
             <div className="row">
-              <hr />
-              <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div className="col-md-6">
                 <Link
-                  className="btn btn-primary btn-product"
-                  to={"detail/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
-                ><span className="glyphicon glyphicon-th-list" /> More details</Link>
-
+                  className={this.props.gridView ? "btn btn-primary btn-product" : 'btn btn-primary pull-right'}
+                  // className="btn btn-primary btn-product"
+                  to={"detail/" + (this.props.pid) + ".html"}
+                ><span className="glyphicon glyphicon-th-list" /> More detail</Link>
               </div>
-              <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <a className="btn btn-success btn-product"><span className="glyphicon glyphicon-shopping-cart" /> Buy</a></div>
+              <div className="col-md-6">
+                <a 
+                className={this.props.gridView ? "btn btn-success btn-product" : 'btn btn-success pull-left'}
+                // className="btn btn-success btn-product"
+                >
+                  <span className="glyphicon glyphicon-shopping-cart" /> Add to cart</a>
+              </div>
             </div>
-            <div className="row">
-              <hr />
-              <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <hr />
+            <div className="row mt-10">
+              <div className="col-md-6">
                 <Link
-                  className="btn btn-primary btn-product"
-                  // onClick={this.getAProduct.bind(this)}
-                  to={"edit/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
+                  className={this.props.gridView ? "btn btn-primary btn-product" : 'btn btn-primary pull-right'}
+                  // className="btn btn-primary btn-product"
+                  to={"edit/" + (this.props.pid) + ".html"}
                 ><span className="glyphicon glyphicon-edit" /> Edit</Link>
               </div>
-              <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div className="col-md-6">
                 <a
-                  className="btn btn-danger"
+                  className={this.props.gridView ? "btn btn-danger btn-product" : 'btn btn-danger pull-left'}
+                  // className="btn btn-danger btn-product"
                   onClick={() => this.buttonDelete()}
-                ><span className="glyphicon glyphicon-floppy-remove" /> Remove</a></div>
+                ><span className="glyphicon glyphicon-remove" /> Remove</a>
+              </div>
             </div>
+            <p> </p>
           </div>
         </div>
       </div>
+
+
+      // <div
+      //   className={this.props.gridView ? "col-xs-4 col-sm-4 col-md-4 col-lg-4" : 'col-xs-12 col-sm-12 col-md-12 col-lg-12'}>
+      //   <div className="thumbnail">
+      //     <h4 className="text-center"><span className="label label-info">{this.props.name}</span></h4>
+      //     <img alt=""
+      //       src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
+      //       className="img-responsive"
+      //       style={{ width: 300, height: 300 }} />
+      //     <div className="caption">
+      //       <div className="row">
+      //         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      //           <h3 className="text-center">
+      //             <span className="label label-success">{this.format_currency(this.props.price)} đ</span></h3>
+      //           {/* <h3>
+      //             <label>Price: {this.format_currency(this.props.price)} VND</label></h3> */}
+      //         </div>
+      //         {/* <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      //           <h4>Description:</h4>
+      //           <p>{this.props.description}</p>
+      //         </div> */}
+      //       </div>
+      //       <div className="row">
+      //         <hr />
+      //         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      //           <Link
+      //             className="btn btn-primary btn-product"
+      //             to={"detail/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
+      //           ><span className="glyphicon glyphicon-th-list" /> More details</Link>
+
+      //         </div>
+      //         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      //           <a className="btn btn-success btn-product"><span className="glyphicon glyphicon-shopping-cart" /> Add to cart</a></div>
+      //       </div>
+      //       <div className="row">
+      //         <hr />
+      //         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      //           <Link
+      //             className="btn btn-primary btn-product"
+      //             // onClick={this.getAProduct.bind(this)}
+      //             to={"edit/" + (this.props.pid) + "/" + this.to_slug(this.props.name) + ".html"}
+      //           ><span className="glyphicon glyphicon-edit" /> Edit</Link>
+      //         </div>
+      //         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      //           <a
+      //             className="btn btn-danger  btn-product"
+      //             onClick={() => this.buttonDelete()}
+      //           ><span className="glyphicon glyphicon-remove" /> Remove</a></div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
     );
   }
 }

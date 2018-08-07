@@ -14,8 +14,8 @@ class RouterURL extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/product" component={Product} />
                     <Route path="/contact" component={Contact} />
-                    <Route path="/edit/:pid/:slug.html" component={ConfigProduct} />
-                    <Route path="/detail/:pid/:slug.html" component={Detail} />
+                    <Route path="/edit/:pid.html" component={ConfigProduct} />
+                    <Route path="/detail/:pid.html" component={Detail} />
                     <Route component={Home} />
                 </Switch>
             </div>
