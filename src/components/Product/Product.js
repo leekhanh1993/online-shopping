@@ -51,7 +51,7 @@ class Product extends Component {
     })
     return (
       <div>
-        <div className="container">
+        <div className="jumbotron">
           <div className="row">
             <div className="col-md-12">
               <ControlView

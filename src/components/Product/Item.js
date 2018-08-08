@@ -95,51 +95,51 @@ class Item extends Component {
       <div className={this.props.gridView ? "col-sm-6 col-md-4" : 'col-sm-6 col-md-12'}>
         <div className="thumbnail">
           <h4 className="text-center">
-            <span className="label label-info">{this.props.name === null ? 'N/A' : this.props.name}</span>
+            <span className="label label-info">{this.props.name ? this.props.name : 'N/A'}</span>
           </h4>
           <img
             src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
             className="img-responsive"
-            style={{ width: 300, height: 300 }} 
+            style={{ width: 300, height: 300 }}
              />
           <div className="caption">
             <div className="row">
               <div className="col-md-12 col-xs-6 price">
                 <h3>
-                  <label>{this.format_currency(this.props.price)} đ</label>
+                  <label>{this.props.price ? this.format_currency(this.props.price) : 'N/A' } đ</label>
                 </h3>
               </div>
             </div>
-            <p>{this.props.description === null ? 'N/A' : this.props.description}</p>
-            <div className="row">
-              <div className="col-md-6">
+            <h4>{this.props.description ? this.props.description : 'N/A'}</h4>
+            <div className="row mt-10">
+              <div className={this.props.gridView ? "col-md-6" : 'col-md-2'}>
                 <Link
-                  className={this.props.gridView ? "btn btn-primary btn-product" : 'btn btn-primary pull-right'}
-                  // className="btn btn-primary btn-product"
+                  // className={this.props.gridView ? "btn btn-primary btn-product" : 'btn btn-primary pull-right'}
+                  className="btn btn-primary btn-product"
                   to={"detail/" + (this.props.pid) + ".html"}
                 ><span className="glyphicon glyphicon-th-list" /> More detail</Link>
               </div>
-              <div className="col-md-6">
-                <a 
-                className={this.props.gridView ? "btn btn-success btn-product" : 'btn btn-success pull-left'}
-                // className="btn btn-success btn-product"
+              <div className={this.props.gridView ? "col-md-6" : 'col-md-2'}>
+                <a
+                // className={this.props.gridView ? "btn btn-success btn-product" : 'btn btn-success pull-left'}
+                className="btn btn-success btn-product"
                 >
                   <span className="glyphicon glyphicon-shopping-cart" /> Add to cart</a>
               </div>
             </div>
             <hr />
             <div className="row mt-10">
-              <div className="col-md-6">
+              <div className={this.props.gridView ? "col-md-6" : 'col-md-2'}>
                 <Link
-                  className={this.props.gridView ? "btn btn-primary btn-product" : 'btn btn-primary pull-right'}
-                  // className="btn btn-primary btn-product"
+                  // className={this.props.gridView ? "btn btn-primary btn-product" : 'btn btn-primary pull-right'}
+                  className="btn btn-primary btn-product"
                   to={"edit/" + (this.props.pid) + ".html"}
                 ><span className="glyphicon glyphicon-edit" /> Edit</Link>
               </div>
-              <div className="col-md-6">
+              <div className={this.props.gridView ? "col-md-6" : 'col-md-2'}>
                 <a
-                  className={this.props.gridView ? "btn btn-danger btn-product" : 'btn btn-danger pull-left'}
-                  // className="btn btn-danger btn-product"
+                  // className={this.props.gridView ? "btn btn-danger btn-product" : 'btn btn-danger pull-left'}
+                  className="btn btn-danger btn-product"
                   onClick={() => this.buttonDelete()}
                 ><span className="glyphicon glyphicon-remove" /> Remove</a>
               </div>

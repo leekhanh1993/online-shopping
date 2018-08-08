@@ -11,21 +11,21 @@ class Home extends Component {
     }
     render() {
         var carsElements = this.props.allProduct.map((element, index) => {
-            return index === 0 ? 
-            <li data-target="#carousel-id" data-slide-to={index} className="active" /> : 
-            <li data-target="#carousel-id" data-slide-to={index} className="" />
+            return index === 0 ?
+                <li data-target="#carousel-id" data-slide-to={index} className="active" /> :
+                <li data-target="#carousel-id" data-slide-to={index} className="" />
         })
         var carsProducts = this.props.allProduct.map((product, index) => {
             return <div key={index} className={index === 0 ? 'item active' : 'item'}>
-                <img 
-                alt={"Slide " + index} 
-                src={product.imageUrl === "" ? "http://via.placeholder.com/300x300" : product.imageUrl}
-                style={{ width: 500, height: 500 }} 
+                <img
+                    alt={"Slide " + index}
+                    src={product.imageUrl === "" ? "http://via.placeholder.com/300x300" : product.imageUrl}
+                    style={{ width: 500, height: 500 }}
                 />
                 <div className="container">
                     <div className="carousel-caption">
                         {/* <h1>{product.name === null ? 'N/A' : product.name}</h1> */}
-                        
+
                     </div>
                 </div>
             </div>
@@ -108,6 +108,13 @@ class Home extends Component {
             // </div>
 
             <div className="container">
+
+                <div className="jumbotron">
+                    <div className="container text-center">
+                        <h1>New Arrival</h1>
+                    </div>
+                </div>
+
                 <div className="jumbotron">
                     <div className="container text-center">
                         <div id="carousel-id" className="carousel slide" data-ride="carousel">
