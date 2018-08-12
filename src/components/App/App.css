@@ -1,35 +1,126 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 .btn-product{
-	width: 100%;
+  width: 100%;
+  background-color: rgb(60, 60, 60) !important;
+  color: white !important;
+  border: rgb(60, 60, 60) !important;
+}
+
+.headerCSS{
+  margin-bottom: 0;
+}
+
+.mb-0{
+  margin-bottom: 0;
+}
+.mt-0{
+  margin-top: 0;
+}
+.mb-10{
+  margin-bottom: 10px;
 }
 .mt-10{
+  margin-top: 10px;
+}
+.ml-10{
+  margin-left: 10px;
+}
+.mr-10{
+  margin-right: 10px;
+}
+.pb-10{
+  padding-bottom: 10px;
+}
+.pt-10{
   padding-top: 10px;
 }
+.pl-10{
+  padding-left: 10px;
+}
+.pr-10{
+  padding-right: 10px;
+}
 
+/* Nabar Custom */
+.navbar-custom {
+  background-color:grey ;
+  color:#ffffff;
+  border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+  color:#fff;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+  color: #ffffff;
+  background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+  text-decoration: none;
+  background-color: grey;
+}
+
+.navbar-custom .navbar-brand {
+  color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+  background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+  background-color: grey;
+}
+
+/* Nabar Custom */
+
+.filterpanel a:link{
+  text-decoration: none;
+}
+.buttonCate{
+  background-color:white;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none !important;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+a:hover.buttonCate{
+  color: black;
+}
+
+.btnView{
+  background-color: rgb(60, 60, 60) !important;
+  color: white !important;
+  border: rgb(60, 60, 60) !important;
+}
+.mainColor{
+  background-color: rgb(60, 60, 60) !important;
+  color: white !important;
+  border: rgb(60, 60, 60) !important;
+}
+a:hover.mainColor{
+  background-color: rgb(216, 209, 1) !important;
+  color: black !important;
+}
+.itemProduct{
+  transition: 0.3s;
+}
+.itemProductGrid:hover{
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+  border: groove 0px;
+}
+.itemProduct:hover{
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+a:hover.tiitlePrice {
+  text-decoration: none !important;
+  color: rgb(1, 156, 223) !important;
+}

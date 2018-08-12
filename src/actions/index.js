@@ -20,9 +20,32 @@ export const fetchProduct = (products) => {
         payload: products
     }
 }
+export const fetchProductType = (productType) => {
+    return{
+        type: types.FETCH_PRODUCT_TYPE,
+        payload: productType
+    }
+}
+
+export const editProductType = (productType) => {
+    return{
+        type: types.EDIT_PRODUCT_TYPE,
+        payload: productType
+    }
+}
+
 export const editProduct = (product) => {
     return{
-        type: types.FETCH_PRODUCT,
+        type: types.EDIT_PRODUCT,
         payload: product
+    }
+}
+export const searchProductByPrice = (minprice, maxprice) => {
+    return{
+        type: types.SEARCH_PRODUCT_BY_PRICE,
+        payload: {
+            minprice,
+            maxprice
+        }
     }
 }

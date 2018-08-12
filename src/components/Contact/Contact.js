@@ -29,7 +29,7 @@ class Contact extends Component {
                                         <textarea className="form-control" rows={3} placeholder="Message" defaultValue={""} />
                                     </div>
                                     <button className="btn btn-default" type="submit" name="button">
-                                        <i className="fa fa-paper-plane-o" aria-hidden="true" /> Submit
+                                        <i className="glyphicon glyphicon-send" aria-hidden="true" /> Submit
                                     </button>
                                 </form>
                             </div>

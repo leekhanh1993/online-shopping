@@ -12,9 +12,7 @@ export default class App extends React.Component {
         <div>
           <Header />
           <Navigation />
-          <div className="container">
             <RouterURL/>
-          </div>
           <Footer />
         </div>
       </Router>

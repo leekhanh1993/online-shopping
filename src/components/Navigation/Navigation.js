@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 class Navigation extends Component {
     render() {
         return (
-            <div>
+            <div className="navbar-custom">
                 <nav className="navbar navbar-inverse">
                     <div className="container-fluid">
                         <div className="navbar-header">
@@ -17,14 +17,17 @@ class Navigation extends Component {
                         </div>
                         <div className="collapse navbar-collapse" id="myNavbar">
                             <ul className="nav navbar-nav">
-                                <li>
+                                {/* <li>
                                     <NavLink activeClassName="selected" to="/">Home</NavLink>
+                                </li> */}
+                                <li>
+                                    <NavLink activeClassName="selected" to="/product">Product</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink activeClassName="selected" to="/Product">Product</NavLink>
+                                    <NavLink activeClassName="selected" to="/admin">Admin</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink activeClassName="selected" to="/Contact">Contact</NavLink>
+                                    <NavLink activeClassName="selected" to="/contact">Contact</NavLink>
                                 </li>
                             </ul>
                         </div>

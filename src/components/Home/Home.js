@@ -12,8 +12,8 @@ class Home extends Component {
     render() {
         var carsElements = this.props.allProduct.map((element, index) => {
             return index === 0 ?
-                <li data-target="#carousel-id" data-slide-to={index} className="active" /> :
-                <li data-target="#carousel-id" data-slide-to={index} className="" />
+                <li key={index} data-target="#carousel-id" data-slide-to={index} className="active" /> :
+                <li key={index}  data-target="#carousel-id" data-slide-to={index} className="" />
         })
         var carsProducts = this.props.allProduct.map((product, index) => {
             return <div key={index} className={index === 0 ? 'item active' : 'item'}>
