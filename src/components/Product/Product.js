@@ -198,7 +198,7 @@ class Product extends Component {
           </div>
           <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9">
             <div className="row">
-              <div style={{paddingLeft: 15, paddingRight: 15}}>
+              <div style={{ paddingLeft: 15, paddingRight: 15 }}>
                 <ControlView
                   gridView={(grid) => this.showGridView(grid)}
                   editControl={this.state.editControl}
@@ -208,6 +208,15 @@ class Product extends Component {
             </div>
             <div className="row">
               {listProducts}
+            </div>
+            <div className="row text-center">
+              <div className="pagination pagination-lg">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+              </div>
             </div>
           </div>
         </div>
