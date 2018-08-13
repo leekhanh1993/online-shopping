@@ -14,23 +14,17 @@ class Pagination extends Component {
             totalItems: this.props.allproduct
         })
     }
-    componentDidMount() {
-        this.props.returnCurrentItems(this.geCurrentItems())
-    }
-    geCurrentItems() {
-        const { totalItems, currentPage, itemsPerPage } = this.state;
-        // Logic for displaying current todos
-        const indexOfLastItem = currentPage * itemsPerPage;
-        const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-        const currentItems = totalItems.slice(indexOfFirstItem, indexOfLastItem);
-        return currentItems
-    }
+    // componentDidMount() {
+    //     this.props.returnCurrentItems(this.getCurrentItems())
+    // }
+ 
     onClick(e) {
         var target = e.target
         var currentPage =  Number(target.id)
-        this.setState({
-            currentPage
-        });
+        console.log(currentPage)
+        // this.setState({
+        //     currentPage
+        // });
     }
     render() {
         const { totalItems, currentPage, itemsPerPage } = this.state;
@@ -48,28 +42,29 @@ class Pagination extends Component {
         for (let i = 1; i <= Math.ceil(totalItems.length / itemsPerPage); i++) {
             pageNumbers.push(i);
         }
-
+        console.log(pageNumbers)
         const loadPageNumbers = pageNumbers.map(number => {
             return (
-                <li
-                    key={number}
-                    myid={number}
-                    onClick={this.onClick.bind(this)}
-                >
-                    {number}
+                <li key={number}>
+                    <a
+                    id={number}
+                    onClick={this.onClick}
+                    >{number}</a>
                 </li>
             );
         });
         return (
             <div className="pagination pagination-lg">
-                <li><a
-                    myid={(1)}
-                    onClick={this.onClick.bind(this)}
+                <li>
+                <a
+                    id='1'
+                    onClick={this.onClick}
                 >{'<<'}</a></li>
                 {loadPageNumbers}
-                <li><a
-                    myid={(1)}
-                    onClick={this.onClick.bind(this)}
+                <li>
+                <a
+                    id='1'
+                    onClick={this.onClick}
                 >{'>>'}</a></li>
             </div>
         );

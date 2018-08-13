@@ -60,7 +60,7 @@ class Item extends Component {
                 src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
                 alt=""
                 className="img-responsive"
-                style={{ width: "100%", height: 300 }}
+                style={{ width: 400, height: 400 }}
               />
             </Link>
             <div className="caption">
@@ -127,22 +127,22 @@ class Item extends Component {
               src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
               alt=""
               className="img-responsive"
-              style={{ width: 350, height: 350, paddingTop: 10, paddingBottom: 10 }}
+              style={{ width: 500, height: 500, paddingTop: 10, paddingBottom: 10 }}
             />
           </Link>
         </div>
 
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div className="pull-right" style={{ paddingTop: 10 }}>
+        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div className="" style={{ paddingTop: 10 }}>
             <Link
               to={"detail/" + (this.props.pid) + ".html"}
-              style={{ fontWeight: 'bold', color: 'black', fontSize: 20 }}
+              style={{ fontWeight: 'bold', color: 'black', fontSize: 25 }}
               className='tiitlePrice'
             >{this.props.name ? this.props.name : 'N/A'}</Link>
-            <p style={{ fontSize: 16, fontWeight: 'bold', marginTop: 10 }}>Brand: {this.props.brand ? this.format_currency(this.props.brand) : 'N/A'}</p>
-            <p style={{ fontSize: 16, fontWeight: 'bold', marginTop: 10 }}>Producer: {this.props.producer ? this.format_currency(this.props.producer) : 'N/A'}</p>
-            <p style={{ fontSize: 16, fontWeight: 'bold', marginTop: 10 }}>Description:</p>
-            <p style={{ fontSize: 12, fontWeight: 'bold', marginTop: 10 }}>{this.props.description ? this.format_currency(this.props.description) : 'N/A'}</p>
+            <p style={{ fontSize: 18, fontWeight: 'bold', marginTop: 10 }}>Brand: {this.props.brand ? this.format_currency(this.props.brand) : 'N/A'}</p>
+            <p style={{ fontSize: 18, fontWeight: 'bold', marginTop: 10 }}>Producer: {this.props.producer ? this.format_currency(this.props.producer) : 'N/A'}</p>
+            <p style={{ fontSize: 18, fontWeight: 'bold', marginTop: 10 }}>Description:</p>
+            <p style={{ fontSize: 14, fontWeight: 'bold', marginTop: 10 }}>{this.props.description ? this.format_currency(this.props.description) : 'N/A'}</p>
 
           </div>
 
@@ -153,7 +153,7 @@ class Item extends Component {
             <div className="row">
               <p
                 className="pull-right"
-                style={{ fontSize: 16, fontWeight: 'bold', marginTop: 10 }}
+                style={{ fontSize: 18, fontWeight: 'bold', marginTop: 10 }}
               >{this.props.price ? this.format_currency(this.props.price) : 'N/A'} $</p>
             </div>
             <div className="row">

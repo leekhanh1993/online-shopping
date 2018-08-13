@@ -16,7 +16,7 @@ class Product extends Component {
       isfilterPrice: '',
       collapseCate: false,
       collapsePrice: false,
-      returnCurrentItems: []
+      currentItems: []
     }
 
   }
@@ -57,11 +57,25 @@ class Product extends Component {
       isfilterPrice: price
     })
   }
-  returnCurrentItems(returnCurrentItems){
+  // returnCurrentItems(returnCurrentItems){
+  //   this.setState({
+  //     returnCurrentItems
+  //   })
+  // }
+  componentWillMount(){
+    var totalItems = this.props.allproduct
+    var currentPage = 1 
+    var itemsPerPage = 3
+    // Logic for displaying current todos
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = totalItems.slice(indexOfFirstItem, indexOfLastItem);
     this.setState({
-      returnCurrentItems
+      currentItems
     })
   }
+
+ 
 
   render() {
     var { keyword, allproduct, allProductType } = this.props;
@@ -116,7 +130,9 @@ class Product extends Component {
     })
 
     //load item via pagination
-    allproduct = this.state.returnCurrentItems
+
+    // allproduct = this.state.returnCurrentItems
+    console.log(this.state.returnCurrentItems)
 
 
     var listProducts = allproduct.map((product, index) => {
@@ -222,7 +238,7 @@ class Product extends Component {
             <div className="row text-center">
               <Pagination
               allproduct={allproduct}
-              returnCurrentItems={(data)=>this.returnCurrentItems(data)}
+              // returnCurrentItems={(data)=>this.returnCurrentItems(data)}
               />
             </div>
           </div>
