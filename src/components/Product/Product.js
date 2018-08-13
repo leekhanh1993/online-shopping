@@ -16,7 +16,9 @@ class Product extends Component {
       isfilterPrice: '',
       collapseCate: false,
       collapsePrice: false,
-      currentItems: []
+      currentPage: 1,
+      itemsPerPage: 3
+
     }
 
   }
@@ -57,25 +59,17 @@ class Product extends Component {
       isfilterPrice: price
     })
   }
-  // returnCurrentItems(returnCurrentItems){
-  //   this.setState({
-  //     returnCurrentItems
-  //   })
-  // }
-  componentWillMount(){
-    var totalItems = this.props.allproduct
-    var currentPage = 1 
-    var itemsPerPage = 3
-    // Logic for displaying current todos
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = totalItems.slice(indexOfFirstItem, indexOfLastItem);
+  returnCurrentItems(returnCurrentItems) {
     this.setState({
-      currentItems
+      returnCurrentItems
     })
   }
+  onClick(currentPage) {
+    this.setState({
+        currentPage
+    });
+  }
 
- 
 
   render() {
     var { keyword, allproduct, allProductType } = this.props;
@@ -130,9 +124,26 @@ class Product extends Component {
     })
 
     //load item via pagination
-
-    // allproduct = this.state.returnCurrentItems
-    console.log(this.state.returnCurrentItems)
+    var { currentPage, itemsPerPage } = this.state;
+    // Logic for displaying page numbers
+    var pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(allproduct.length / itemsPerPage); i++) {
+      pageNumbers.push(i);
+    }
+    var loadPageNumbers = pageNumbers.map(number => {
+      return (
+        <li key={number}>
+          <a
+            id={number}
+            onClick={this.onClick.bind(this, number)}
+          >{number}</a>
+        </li>
+      );
+    });
+    // Logic for displaying current items
+    var indexOfLastItem = currentPage * itemsPerPage;
+    var indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    allproduct = allproduct.slice(indexOfFirstItem, indexOfLastItem);
 
 
     var listProducts = allproduct.map((product, index) => {
@@ -236,10 +247,23 @@ class Product extends Component {
               {listProducts}
             </div>
             <div className="row text-center">
-              <Pagination
+              {/* <Pagination
               allproduct={allproduct}
               // returnCurrentItems={(data)=>this.returnCurrentItems(data)}
-              />
+              /> */}
+              <div className="pagination pagination-lg">
+                <li>
+                  <a
+                    id='1'
+                    onClick={this.onClick.bind(this, 1)}
+                  >{'<<'}</a></li>
+                {loadPageNumbers}
+                <li>
+                  <a
+                    id='1'
+                    onClick={this.onClick.bind(this, 1)}
+                  >{'>>'}</a></li>
+              </div>
             </div>
           </div>
         </div>
