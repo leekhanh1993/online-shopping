@@ -4,6 +4,7 @@ import Item from './Item';
 import { connect } from 'react-redux'
 import { fetchProduct, fetchProductType } from '../../reducers/manageFetchData'
 import ByCategory from '../Filter/ByCategory';
+import Pagination from '../Pagination/Pagination';
 
 class Product extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class Product extends Component {
       editCategoryID: '',
       isfilterPrice: '',
       collapseCate: false,
-      collapsePrice: false
+      collapsePrice: false,
+      returnCurrentItems: []
     }
 
   }
@@ -53,6 +55,11 @@ class Product extends Component {
   filterPrice(price) {
     this.setState({
       isfilterPrice: price
+    })
+  }
+  returnCurrentItems(returnCurrentItems){
+    this.setState({
+      returnCurrentItems
     })
   }
 
@@ -107,6 +114,9 @@ class Product extends Component {
         filterCategory={(editCategoryID) => this.filterCategory(editCategoryID)}
       />
     })
+
+    //load item via pagination
+    allproduct = this.state.returnCurrentItems
 
 
     var listProducts = allproduct.map((product, index) => {
@@ -210,13 +220,10 @@ class Product extends Component {
               {listProducts}
             </div>
             <div className="row text-center">
-              <div className="pagination pagination-lg">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-              </div>
+              <Pagination
+              allproduct={allproduct}
+              returnCurrentItems={(data)=>this.returnCurrentItems(data)}
+              />
             </div>
           </div>
         </div>
