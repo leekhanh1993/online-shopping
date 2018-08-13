@@ -4,7 +4,6 @@ import Product from '../Product/Product';
 import Home from '../Home/Home';
 import Detail from '../Detail/Detail';
 import Contact from '../Contact/Contact';
-import MngProduct from '../Product/MngProduct';
 import ConfigProductType from '../ProductType/ConfigProductType';
 import Admin from '../AdminPage/Admin';
 import ConfigProduct from '../Product/ConfigProduct';

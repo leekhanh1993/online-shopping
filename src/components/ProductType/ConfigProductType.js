@@ -72,7 +72,7 @@ class ConfigProductType extends Component {
                             {/* Add Modal */}
                             <button
                                 type="button"
-                                className="btn btn-primary mainColor"
+                                className="btn btn-primary btnView"
                                 data-toggle="modal"
                                 data-target="#AddModal"
                             ><span className="glyphicon glyphicon-plus" /> Add New</button>

@@ -4,7 +4,6 @@ import Item from './Item';
 import { connect } from 'react-redux'
 import { fetchProduct, fetchProductType } from '../../reducers/manageFetchData'
 import ByCategory from '../Filter/ByCategory';
-import Pagination from '../Pagination/Pagination';
 
 class Product extends Component {
   constructor(props) {
@@ -17,7 +16,8 @@ class Product extends Component {
       collapseCate: false,
       collapsePrice: false,
       currentPage: 1,
-      itemsPerPage: 3
+      itemsPerPage: 9,
+      hidePage: 1,
 
     }
 
@@ -66,7 +66,8 @@ class Product extends Component {
   }
   onClick(currentPage) {
     this.setState({
-        currentPage
+        currentPage,
+        hidePage: currentPage
     });
   }
 
@@ -124,22 +125,37 @@ class Product extends Component {
     })
 
     //load item via pagination
-    var { currentPage, itemsPerPage } = this.state;
+    var { currentPage, itemsPerPage, hidePage } = this.state;
+    var totalPage = Math.ceil(allproduct.length / itemsPerPage)
     // Logic for displaying page numbers
     var pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(allproduct.length / itemsPerPage); i++) {
+    for (let i = 1; i <= totalPage; i++) {
       pageNumbers.push(i);
     }
-    var loadPageNumbers = pageNumbers.map(number => {
-      return (
-        <li key={number}>
-          <a
-            id={number}
-            onClick={this.onClick.bind(this, number)}
-          >{number}</a>
-        </li>
-      );
-    });
+
+    if('123'.includes(hidePage)){
+      pageNumbers = pageNumbers.slice(0,5)
+      var loadPageNumbers = pageNumbers.map(number => {
+        return (
+          <li className={hidePage === number ? 'active' : ''} key={number}>
+            <a
+              onClick={this.onClick.bind(this, number)}
+            >{number}</a>
+          </li>
+        );
+      });
+    }else{
+      pageNumbers = pageNumbers.slice((hidePage-3),(hidePage+2))
+      var loadPageNumbers = pageNumbers.map(number => {
+        return (
+          <li className={hidePage === number ? 'active' : ''} key={number}>
+            <a
+              onClick={this.onClick.bind(this, number)}
+            >{number}</a>
+          </li>
+        );
+      });
+    }
     // Logic for displaying current items
     var indexOfLastItem = currentPage * itemsPerPage;
     var indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -254,14 +270,12 @@ class Product extends Component {
               <div className="pagination pagination-lg">
                 <li>
                   <a
-                    id='1'
                     onClick={this.onClick.bind(this, 1)}
                   >{'<<'}</a></li>
                 {loadPageNumbers}
                 <li>
                   <a
-                    id='1'
-                    onClick={this.onClick.bind(this, 1)}
+                    onClick={this.onClick.bind(this, totalPage)}
                   >{'>>'}</a></li>
               </div>
             </div>

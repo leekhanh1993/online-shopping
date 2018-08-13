@@ -24,13 +24,13 @@ class ItemProductType extends Component {
                     />
                     <button
                         type="button"
-                        className="btn btn-primary mainColor"
+                        className="btn btn-primary btnView"
                         data-toggle="modal"
                         data-target={'#'+this.props.pid}
                     ><span className="glyphicon glyphicon-edit" /> Edit</button> &nbsp;
                     <button
                         type="button"
-                        className="btn btn-danger mainColor"
+                        className="btn btn-danger btnView"
                         onClick={this.Delete.bind(this)}
                     ><span className="glyphicon glyphicon-remove" /> Remove</button>
                 </td>

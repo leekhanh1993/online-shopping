@@ -56,7 +56,7 @@ class MdAddProduct extends Component {
         })
         var listProductType = cleanData.map((ptype, index)=>{
             if(index===0){
-                return <option selected value={ptype._id} key={index}>{ptype.name}</option>
+                return <option defaultValue={ptype.name} value={ptype._id} key={index}>{ptype.name}</option>
             }
             return <option key={index} value={ptype._id}>{ptype.name}</option>
         })
@@ -100,14 +100,6 @@ class MdAddProduct extends Component {
                                                 >
                                                     {listProductType}
                                                 </select>
-                                                {/* <input
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder=""
-                                                    name="productType"
-                                                    value={this.state.productType}
-                                                    onChange={this.onChange.bind(this)}
-                                                /> */}
                                             </div>
                                         </div>
 

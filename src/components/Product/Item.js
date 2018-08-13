@@ -60,7 +60,7 @@ class Item extends Component {
                 src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
                 alt=""
                 className="img-responsive"
-                style={{ width: 400, height: 400 }}
+                style={{ width: 200, height: 200 }}
               />
             </Link>
             <div className="caption">
@@ -72,48 +72,12 @@ class Item extends Component {
               <p style={{ fontSize: 18, fontWeight: 'bold', marginTop: 10 }}>{this.props.price ? this.format_currency(this.props.price) : 'N/A'} $</p>
               <p>
                 <a
-                  // className={this.props.gridView ? "btn btn-success btn-product" : 'btn btn-success pull-left'}
                   className="btn btn-default mainColor"
                 >
                   <span className="glyphicon glyphicon-shopping-cart" /> Add to cart</a>
               </p>
             </div>
           </div>
-          {/* <div className="thumbnail">
-            <h4 className="text-center">
-              <span className="label label-info" style={{backgroundColor: 'rgb(60, 60, 60)'}}>{this.props.name ? this.props.name : 'N/A'}</span>
-            </h4>
-            <img
-              src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
-              className="img-responsive"
-              style={{ width: 300, height: 300 }}
-            />
-            <div className="caption">
-              <div className="row">
-                <div className="col-md-12 col-xs-6">
-                  <h3>
-                    <label>{this.props.price ? this.format_currency(this.props.price) : 'N/A'} $</label>
-                  </h3>
-                </div>
-              </div>
-              <div className="row mt-10">
-                <div className={this.props.gridView ? "col-md-6" : 'col-md-2'}>
-                  <Link
-                    // className={this.props.gridView ? "btn btn-primary btn-product" : 'btn btn-primary pull-right'}
-                    className="btn btn-primary btn-product"
-                    to={"detail/" + (this.props.pid) + ".html"}
-                  ><span className="glyphicon glyphicon-th-list" /> More detail</Link>
-                </div>
-                <div className={this.props.gridView ? "col-md-6" : 'col-md-2'}>
-                  <a
-                    // className={this.props.gridView ? "btn btn-success btn-product" : 'btn btn-success pull-left'}
-                    className="btn btn-success btn-product"
-                  >
-                    <span className="glyphicon glyphicon-shopping-cart" /> Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
       );
     }
@@ -127,7 +91,7 @@ class Item extends Component {
               src={this.props.imageUrl === "" ? "http://via.placeholder.com/300x300" : this.props.imageUrl}
               alt=""
               className="img-responsive"
-              style={{ width: 500, height: 500, paddingTop: 10, paddingBottom: 10 }}
+              style={{ width: 400, height: 400 , paddingTop: 10, paddingBottom: 10 }}
             />
           </Link>
         </div>

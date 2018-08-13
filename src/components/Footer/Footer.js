@@ -8,7 +8,7 @@ class Footer extends Component {
                     <p>Online Store Copyright</p>
                     <form className="form-inline">Get deals:
             <input type="email" className="form-control" size={50} placeholder="Email Address" />
-                        <button type="button" className="btn btn-danger">Sign Up</button>
+                        <a type="button" className="btn btn-danger btnView">Sign Up</a>
                     </form>
                 </footer>
             </div>
