@@ -66,8 +66,8 @@ class Product extends Component {
   }
   onClick(currentPage) {
     this.setState({
-        currentPage,
-        hidePage: currentPage
+      currentPage,
+      hidePage: currentPage
     });
   }
 
@@ -95,15 +95,19 @@ class Product extends Component {
     if (this.state.isfilterPrice !== '') {
       if (this.state.isfilterPrice === '-1') {
         allproduct = allproduct.sort((a, b) => {
-          if (parseInt(a.price) > parseInt(b.price)) { return -1 }
-          else if (parseInt(a.price) < parseInt(b.price)) { return 1 }
+          var firstPrice = a.price ? a.price : 0
+          var SecondPrice = b.price ? b.price : 0
+          if (parseInt(firstPrice) > parseInt(SecondPrice)) { return -1 }
+          else if (parseInt(firstPrice) < parseInt(SecondPrice)) { return 1 }
           else return 0;
         })
       }
       if (this.state.isfilterPrice === '1') {
         allproduct = allproduct.sort((a, b) => {
-          if (parseInt(a.price) > parseInt(b.price)) { return 1 }
-          else if (parseInt(a.price) < parseInt(b.price)) { return -1 }
+          var firstPrice = a.price ? a.price : 0
+          var SecondPrice = b.price ? b.price : 0
+          if (parseInt(firstPrice) > parseInt(SecondPrice)) { return 1 }
+          else if (parseInt(firstPrice) < parseInt(SecondPrice)) { return -1 }
           else return 0;
         })
       }
@@ -133,8 +137,8 @@ class Product extends Component {
       pageNumbers.push(i);
     }
 
-    if('123'.includes(hidePage)){
-      pageNumbers = pageNumbers.slice(0,5)
+    if ('123'.includes(hidePage)) {
+      pageNumbers = pageNumbers.slice(0, 5)
       var loadPageNumbers = pageNumbers.map(number => {
         return (
           <li className={hidePage === number ? 'active' : ''} key={number}>
@@ -144,8 +148,8 @@ class Product extends Component {
           </li>
         );
       });
-    }else{
-      pageNumbers = pageNumbers.slice((hidePage-3),(hidePage+2))
+    } else {
+      pageNumbers = pageNumbers.slice((hidePage - 3), (hidePage + 2))
       var loadPageNumbers = pageNumbers.map(number => {
         return (
           <li className={hidePage === number ? 'active' : ''} key={number}>
