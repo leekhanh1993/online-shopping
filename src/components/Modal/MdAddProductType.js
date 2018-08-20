@@ -23,9 +23,14 @@ class MdAddProductType extends Component {
             name: ""
         })
     }
-    submitForm(){
-        this.clearForm();
+    submitForm = (e) =>{
+        e.preventDefault();
         this.props.dispatch(addProductType(this.state))
+        alert(`Add successful: ${this.state.name}`)
+        this.clearForm();
+    }
+    closeForm(){
+        this.clearForm();
     }
     render() {
         return (
@@ -38,7 +43,7 @@ class MdAddProductType extends Component {
                                         <h4 className="modal-title ">Add New Product Type</h4>
                                     </div>
                                     <div className="modal-body">
-                                        <form>
+                                        <form onSubmit={this.submitForm}>
                                             <div className="row">
                                                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                     <div className="form-group">
@@ -50,22 +55,24 @@ class MdAddProductType extends Component {
                                                             name="name"
                                                             value={this.state.name}
                                                             onChange={this.onChange.bind(this)}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="text-center">
                                                 <button
-                                                    type="button"
+                                                    type="submit"
                                                     className="btn btn-primary mainColor"
-                                                    data-dismiss="modal"
-                                                    onClick={this.submitForm.bind(this)}
+                                                    // data-dismiss="modal"
+                                                    // onClick={this.submitForm.bind(this)}
                                                 ><span className="glyphicon glyphicon-plus"/> Add</button>
                                                 <button
                                                     type="button"
                                                     className="btn btn-danger mainColor"
                                                     style={{ marginLeft: 10 }}
                                                     data-dismiss="modal"
+                                                    onClick={this.closeForm.bind(this)}
                                                 ><span className="glyphicon glyphicon-log-out" /> Cancel</button>
                                             </div>
                                         </form>

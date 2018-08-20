@@ -49,10 +49,6 @@ class MdEditProduct extends Component {
             productType
         }
         this.props.dispatch(updateProduct(changeProduct))
-        this.setState({
-            isRedirect: true
-        })
-
     }
     render() {
         var cleanData = this.props.allProductType.filter((ptype)=>{
